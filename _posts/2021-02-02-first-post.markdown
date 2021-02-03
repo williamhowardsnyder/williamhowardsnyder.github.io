@@ -2,7 +2,8 @@
 layout: post
 title: "This is a Test"
 date: 2021-02-02 00:00:00 -0000
-categories: CATEGORY-1 CATEGORY-2
+usemathjax: true
+categories: Test
 ---
 # This is a test post.
 
@@ -15,6 +16,4 @@ def hello_world:
 Pretty cool, huh!
 
 Can I write LaTeX though?? That's the real question
- {% raw %}
-  $$a^2 + b^2 = c^2$$ --> note that all equations between these tags will not need escaping! 
- {% endraw %}
+$$E = mc^2$$
