@@ -17,3 +17,5 @@ Pretty cool, huh!
 
 Can I write LaTeX though?? That's the real question
 $$E = mc^2$$
+
+10:07
