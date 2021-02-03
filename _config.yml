@@ -21,14 +21,14 @@
 title: William's Personal Website
 email: william122899@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  "William's website hosts blog posts, and personal projects related to computer science!"
+  William's website hosts blog posts, and personal projects related to computer science!
 baseurl: "williamhowardsnyder.github.io" # the subpath of your site, e.g. /blog
 url: "williamhowardsnyder" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username:  williamhowardsnyder
 
 # Build settings
-theme: minima
+theme: cayman
 plugins:
   - jekyll-feed
 
