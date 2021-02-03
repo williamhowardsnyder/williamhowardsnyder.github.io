@@ -29,7 +29,6 @@ github_username:  williamhowardsnyder
 
 # Build settings
 theme: jekyll-theme-merlot
-# remote_theme: ItsMeaga1n/minimal-categorized
 plugins:
   - jekyll-feed
 
