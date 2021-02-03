@@ -13,3 +13,6 @@ def hello_world:
 {% endhighlight %}
 
 Pretty cool, huh!
+
+Can I write LaTeX though?? That's the real question
+$$ \nabla_\boldsymbol{x} J(\boldsymbol{x}) $$
