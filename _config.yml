@@ -28,8 +28,8 @@ url: "williamhowardsnyder" # the base hostname & protocol for your site, e.g. ht
 github_username:  williamhowardsnyder
 
 # Build settings
-# theme: cayman
-remote_theme: ItsMeaga1n/minimal-categorized
+theme: jekyll-theme-merlot
+# remote_theme: ItsMeaga1n/minimal-categorized
 plugins:
   - jekyll-feed
 
