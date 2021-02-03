@@ -15,4 +15,4 @@ def hello_world:
 Pretty cool, huh!
 
 Can I write LaTeX though?? That's the real question
-$ \nabla_\boldsymbol{x} J(\boldsymbol{x}) $
+\( \nabla_\boldsymbol{x} J(\boldsymbol{x}) \)
