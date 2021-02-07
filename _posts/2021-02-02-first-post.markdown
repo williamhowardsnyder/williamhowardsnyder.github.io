@@ -2,7 +2,6 @@
 layout: post
 title: "This is a Test"
 date: 2021-02-02 00:00:00 -0000
-usemathjax: true
 categories: Test
 ---
 # This is a test post.
