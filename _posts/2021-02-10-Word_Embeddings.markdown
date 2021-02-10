@@ -4,10 +4,17 @@ title: "The Power of Word Embeddings"
 date: 2021-02-02 00:00:00 -0000
 categories: Word Embedding
 ---
---# This is a test post.
+# Introduction:
+A word embedding is a mapping from words to vectors of real numbers. In natural language processesing, it is often useful to use word embeddings because then we can employ  all the tools we've developed for extracting information from matrices. If the word embedding is good enough, then these techniques can be used to solve various tasks on natural language. Today we are going to examine one such word embedding ...
+
+
+We want these vectors to preserve syntactic and semantic relationships between their corresponding words so that we can use them in NLP tasks. So, for example, 
+
+One way this can be achieved is by taking a 
 
 A word embedding is a mapping from words to vectors of real numbers. A good word embedding is one that preserves the syntacitcal and semantic relationships between words. A natural way of testing the efficacy of word embeddings is whether it can be used to solve analogy tasks. For example, 
 <script type="math/tex; mode=display">h_{t+1} = Ah_t + Bx_t~~~~~~~~~~~~~~~~~~~~~</script>
+<script type="math/tex; mode=display">h_{t+1} = Ah_t + Bx_t</script>
 
 
 
