@@ -50,4 +50,5 @@ A word embedding is a mapping from words to vectors of real numbers. A good word
 
 
 
-
+TODO: Figure out how to properly cite
+This blog post was derived from lecture notes and a mini-project I completed for a class I took under \_\_\_\_ Lee at the University of Washington.
