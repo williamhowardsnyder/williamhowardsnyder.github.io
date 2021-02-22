@@ -32,23 +32,22 @@ where
 </ol>
 
 <div style="text-align:center;">
-   <img style="width:800px;" src="/assets/images/svd_visual.png" />
+   <img style="width:500px;" src="/assets/images/svd_visual.png" />
 </div>
 
 The first left and right singular vectors (i.e. $u_1, u_2, ...$ and $v_1, v_2, ...$) are weighted more than last because they will be the ones multiplied by the largest values in $S$. Of course there is more nuance to this idea, but the upshot is that the SVD of $A$ provides a list of ingredients for matrix $A$ that is ordered by importance (as my professor puts it). Feel free to read more about SVD <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">here</a>.
 
-We are going to use the SVD of $\widehat{M} = USV^\top$ to find a low dimensional word embedding by using the first 99 columns and rows of $U$ and $S$, respectively. This only makes sense if those singular values are signifigantly larger than the rest. To confirm this, we can plot the first 99 singular values.
+It seems reasonable that our method for assigning vectors to words picked up a lot of noise. To try to dampen this noise, we are going to use the SVD of $\widehat{M} = USV^\top$ to find a low dimensional word embedding by using the first 99 columns and rows of $U$ and $S$, respectively. This only makes sense if those singular values are signifigantly larger than the rest. To confirm this, we can plot the first 99 singular values.
 
 <div style="text-align:center;">
-   <img style="width:800px;" src="/assets/images/p2_part_a.png" />
+   <img style="width:500px;" src="/assets/images/p2_part_a.png" />
 </div>
 
-but before we do so, we should ensure that $\widehat{M}$ is low-rank. For, if all the singular values are similar, then only using the first few might be damage
+As suspected, the early singular values of $\widehat{M}$ are quite large relative to the rest of them. This should ensure that $\widehat{M}$ is low-rank.
 
 
 
 TODO:
-* Show that the matrix is "low rank" (i.e. only the first few are important)
 * SVD can be used to efficiently find the most influential "ranks" of a matrix (those with the largest singular values)
 * These correspond to 
 
