@@ -40,7 +40,7 @@ The first left and right singular vectors (i.e. $u_1, u_2, ...$ and $v_1, v_2, .
 It seems reasonable that our method for assigning vectors to words picked up a lot of noise. To try to dampen this noise, we are going to use the SVD of $\widehat{M} = USV^\top$ to find a low dimensional word embedding by using the first 99 columns and rows of $U$ and $S$, respectively. This only makes sense if those singular values are signifigantly larger than the rest. To confirm this, we can plot the first 99 singular values.
 
 <div style="text-align:center;">
-   <img style="width:300px;" src="/assets/images/p2_part_a.png" />
+   <img style="width:450px;" src="/assets/images/p2_part_a.png" />
 </div>
 
 As suspected, the early singular values of $\widehat{M}$ are quite large relative to the rest. This ensures that $\widehat{M}$ is close to being low-rank, and using the first 99 singular vectors and values will provide a good approximation to $\widehat{M}$ while eliminating noise that might have been picked up in the other 9901 dimensions.
