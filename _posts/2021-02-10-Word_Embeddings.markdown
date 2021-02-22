@@ -43,23 +43,26 @@ It seems reasonable that our method for assigning vectors to words picked up a l
    <img style="width:450px;" src="/assets/images/p2_part_a.png" />
 </div>
 
-As suspected, the early singular values of $\widehat{M}$ are quite large relative to the rest. This ensures that $\widehat{M}$ is close to being low-rank, and using the first 99 singular vectors and values will provide a good approximation to $\widehat{M}$ while eliminating noise that might have been picked up in the other 9901 dimensions.
-
-The last step in creating our word embedding is to normalize the columns of $U$.
+As suspected, the early singular values of $\widehat{M}$ are quite large relative to the rest. This ensures that $\widehat{M}$ is close to being low-rank, and using the first 99 singular vectors and values will provide a good approximation to $\widehat{M}$ while eliminating noise that might have been picked up in the other 9901 dimensions. The last step in creating our word embedding is to normalize the rows of $U$.
 
 Here is the algorithm for our word embedding:
 <ol>
   <li>Compute SVD of $\widehat{M} = USV^\top$.</li>
   <li>Let $U_{99}$ be the first 99 singular vectors of $U = [u_1 \; u_2 \; ... \; u_{99}]$.</li>
-  <li>Normalize $U_{99}$ such that column vector $||u_i||_2 = 1$. Let's call the result $\widehat{U}_{99}$.</li>
+  <li>Normalize the rows of $U_{99}$ such that each row has a $\ell_2$-norm of 1. Let's call the result $\widehat{U}_{99}$.</li>
   <li>Return $\widehat{U}_{99}$</li>
 </ol>
-Let $w_i \in \mathbb{R}^{10000}$ be a word represented by the $i$th column of $\widehat{M}$. Then, the embedding of that word is $\widehat{U}_{99}$, which is in $\mathbb{R}^{99}$.
+Let $w_i \in \mathbb{R}^{10000}$ be a word represented by the $i$th column of $\widehat{M}$. Then, the embedding of that word is the $i$th column of $\widehat{U}_{99}$, which is in $\mathbb{R}^{99}$.
 
 
 # Performance on the Analogy Task:
 
-Something here
+Ok, so we've created a word embedding, but how good is it. This is not an easy question to answer, but let's return to our original task of completing analogies. ...
+
+TODO
+* Provide diagrams of performance on gendered anologies
+* Explain why this is the case
+* Potential downsides
 
 
 
