@@ -40,17 +40,21 @@ The first left and right singular vectors (i.e. $u_1, u_2, ...$ and $v_1, v_2, .
 It seems reasonable that our method for assigning vectors to words picked up a lot of noise. To try to dampen this noise, we are going to use the SVD of $\widehat{M} = USV^\top$ to find a low dimensional word embedding by using the first 99 columns and rows of $U$ and $S$, respectively. This only makes sense if those singular values are signifigantly larger than the rest. To confirm this, we can plot the first 99 singular values.
 
 <div style="text-align:center;">
-   <img style="width:500px;" src="/assets/images/p2_part_a.png" />
+   <img style="width:300px;" src="/assets/images/p2_part_a.png" />
 </div>
 
-As suspected, the early singular values of $\widehat{M}$ are quite large relative to the rest of them. This should ensure that $\widehat{M}$ is low-rank.
+As suspected, the early singular values of $\widehat{M}$ are quite large relative to the rest. This ensures that $\widehat{M}$ is close to being low-rank, and using the first 99 singular vectors and values will provide a good approximation to $\widehat{M}$ while eliminating noise that might have been picked up in the other 9901 dimensions.
 
+The last step in creating our word embedding is to normalize the columns of $U$.
 
-
-TODO:
-* SVD can be used to efficiently find the most influential "ranks" of a matrix (those with the largest singular values)
-* These correspond to 
-
+Here is the algorithm for our word embedding:
+<ol>
+  <li>Compute SVD of $\widehat{M} = USV^\top$.</li>
+  <li>Let $U_{99}$ be the first 99 singular vectors of $U = [u_1 \; u_2 \; ... \; u_{99}]$.</li>
+  <li>Normalize $U_{99}$ such that column vector $||u_i||_2 = 1$. Let's call the result $\widehat{U}_{99}$.</li>
+  <li>Return $\widehat{U}_{99}$</li>
+</ol>
+Let $w_i \in \mathbb{R}^{10000}$ be a word represented by the $i$th column of $\widehat{M}$. Then, the embedding of that word is $\widehat{U}_{99}$, which is in $\mathbb{R}^{99}$.
 
 
 # Performance on the Analogy Task:
