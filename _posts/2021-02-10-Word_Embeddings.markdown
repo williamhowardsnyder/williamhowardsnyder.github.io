@@ -77,4 +77,4 @@ Put something here too
 Annother thing here maybe
 
 
-*This blog post was derived from lecture notes and a mini-project I completed for a course I took called CSE 422: Modern Algorithms at the University of Washington.*
+*This blog post was inspired by a project I completed for CSE 422: Modern Algorithms, which is a course I took at the University of Washington.*
