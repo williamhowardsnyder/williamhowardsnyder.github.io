@@ -17,9 +17,33 @@ Over the course of this blog post, I will explain how this can be achieved.
 
 # The Embedding:
 
-First, we need a way to represent words as vectors. One way to do this that seems reasonable is to take a huge corpus of text, and represent each word as the number of times every other word appears near it. This vector will capture the co-occurence relationship between words. For our purposes, we will use a Wikipedia corpus with 1.5 billion words, and store all this information in a matrix $M$. Since some words only appear once, we will store the 10,000 most common words. Now, we have a matrix $M$ such that $M_{ij}$ is the number of times the $i$th word appeared near (within 5 words of) the $j$th word.
+First, we need a way to represent words as vectors. Initially, it is not important that this representation is low dimensional or captures the meaning of words. One way to do this that seems reasonable is to take a huge corpus of text, and represent each word as the number of times every other word appears near it. This vector will capture the co-occurence relationship between words. For our purposes, we will use a Wikipedia corpus with 1.5 billion words, and store all this information in a matrix $M$. Since some words only appear once, we will store the 10,000 most common words. Now, we have a matrix $M$ such that $M_{ij}$ is the number of times the $i$th word appeared near (within 5 words of) the $j$th word.
 
-For example, the index 12 corresponds to the word "with", and the index 3 correponds to the word "in", so $M_{12, 3}$ will store the number of times the word "with" shows up within 5 words of the word "in" in our text corpus. As you might expect, the most common words will be articles and other farily non-interesting types of words. To make these words less influential we'll define a new matrix $\widehat{M} \in \mathbb{R}^{10000 \times 10000}$ such that $\widehat{M} = \ln(1 + M_{ij})$. The idea behind this operation is to smooth out the counts, and hopefully get a better embedding as a result. So, we now have a matrix $\widehat{M}$ that represents each word as a vector of real numbers, and does so in a way that captures the co-occurrence relationship between words.
+For example, the index 12 corresponds to the word "with", and the index 3 correponds to the word "in", so $M_{12, 3}$ will store the number of times the word "with" shows up within 5 words of the word "in" in our text corpus. As you might expect, the most common words will be articles and other farily non-interesting types of words. To make these words less influential we'll define a new matrix $\widehat{M} \in \mathbb{R}^{10000 \times 10000}$ such that $\widehat{M} = \ln(1 + M_{ij})$. The idea behind this operation is to smooth out the counts, and hopefully get a better embedding as a result. Now that we have a matrix $\widehat{M}$ that represents each word as a vector of real numbers we begin embedding these vectors into lower dimensions in a way that captures their meaning.
+
+As alluded to above, the way that we are going to do this is by using singular value decomposition (SVD). The SVD of a matrix $A \in \mathbb{R}^{m \times n}$ expresses $A$ as the product of three "simple" matrices:
+<script type="math/tex; mode=display">A = USV^\top</script>
+where
+<ol>
+  <li>$U$ is an $m \times m$ orthogonal matrix (i.e. it's column vectors are perpendicular)</li>
+  <li>$V$ is a $n \time n$ orthogonal matrix</li>
+  <li>$S$ is a $m \times n$ diagonal matrix with non-negative entries. For convienence these entries are typically sorted in descending order where the first one is the largest</li>
+</ol>
+<div style="text-align:center;">
+   <img style="width:800px;" src="/assets/images/svd_visual.png" />
+</div>
+
+As my professor puts it, the SVD of $A$ provides a list of ingredients for matrix $A$ that is ordered by importance. Of course there is more nuance to this idea, but the upshot is that...  Feel free to read more about it <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">here</a>.
+
+We are going to use the SVD of $\widehat{M}$ to find a low dimensional word embedding. ....
+
+
+
+
+<div style="text-align:center;">
+   <img style="width:800px;" src="/assets/images/p2_part_a.png" />
+</div>
+
 
 TODO:
 * Show that the matrix is "low rank" (i.e. only the first few are important)
@@ -42,12 +66,7 @@ Put something here too
 
 # Notes and other stuff
 
-We want these vectors to preserve syntactic and semantic relationships between their corresponding words so that we can use them in NLP tasks. So, for example, 
-
-One way this can be achieved is by taking a 
-
-A word embedding is a mapping from words to vectors of real numbers. A good word embedding is one that preserves the syntacitcal and semantic relationships between words. A natural way of testing the efficacy of word embeddings is whether it can be used to solve analogy tasks. For example, 
-
+Annother thing here maybe
 
 
 *This blog post was derived from lecture notes and a mini-project I completed for a course I took called CSE 422: Modern Algorithms at the University of Washington.*
