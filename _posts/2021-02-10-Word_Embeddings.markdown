@@ -22,27 +22,29 @@ First, we need a way to represent words as vectors. Initially, it is not importa
 For example, the index 12 corresponds to the word "with", and the index 3 correponds to the word "in", so $M_{12, 3}$ will store the number of times the word "with" shows up within 5 words of the word "in" in our text corpus. As you might expect, the most common words will be articles and other farily non-interesting types of words. To make these words less influential we'll define a new matrix $\widehat{M} \in \mathbb{R}^{10000 \times 10000}$ such that $\widehat{M} = \ln(1 + M_{ij})$. The idea behind this operation is to smooth out the counts, and hopefully get a better embedding as a result. Now that we have a matrix $\widehat{M}$ that represents each word as a vector of real numbers we begin embedding these vectors into lower dimensions in a way that captures their meaning.
 
 As alluded to above, the way that we are going to do this is by using singular value decomposition (SVD). The SVD of a matrix $A \in \mathbb{R}^{m \times n}$ expresses $A$ as the product of three "simple" matrices:
+
 <script type="math/tex; mode=display">A = USV^\top</script>
 where
 <ol>
   <li>$U$ is an $m \times m$ orthogonal matrix (i.e. it's column vectors are perpendicular)</li>
-  <li>$V$ is a $n \time n$ orthogonal matrix</li>
-  <li>$S$ is a $m \times n$ diagonal matrix with non-negative entries. For convienence these entries are typically sorted in descending order where the first one is the largest</li>
+  <li>$V$ is a $n \times n$ orthogonal matrix</li>
+  <li>$S$ is a $m \times n$ diagonal matrix with non-negative entries. For convienence, these entries are sorted in descending order where the first one is the largest</li>
 </ol>
+
 <div style="text-align:center;">
    <img style="width:800px;" src="/assets/images/svd_visual.png" />
 </div>
 
-As my professor puts it, the SVD of $A$ provides a list of ingredients for matrix $A$ that is ordered by importance. Of course there is more nuance to this idea, but the upshot is that...  Feel free to read more about it <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">here</a>.
+The first left and right singular vectors (i.e. $u_1, u_2, ...$ and $v_1, v_2, ...$) are weighted more than last because they will be the ones multiplied by the largest values in $S$. Of course there is more nuance to this idea, but the upshot is that the SVD of $A$ provides a list of ingredients for matrix $A$ that is ordered by importance (as my professor puts it). Feel free to read more about SVD <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">here</a>.
 
-We are going to use the SVD of $\widehat{M}$ to find a low dimensional word embedding. ....
-
-
-
+We are going to use the SVD of $\widehat{M} = USV^\top$ to find a low dimensional word embedding by using the first 99 columns and rows of $U$ and $S$, respectively. This only makes sense if those singular values are signifigantly larger than the rest. To confirm this, we can plot the first 99 singular values.
 
 <div style="text-align:center;">
    <img style="width:800px;" src="/assets/images/p2_part_a.png" />
 </div>
+
+but before we do so, we should ensure that $\widehat{M}$ is low-rank. For, if all the singular values are similar, then only using the first few might be damage
+
 
 
 TODO:
