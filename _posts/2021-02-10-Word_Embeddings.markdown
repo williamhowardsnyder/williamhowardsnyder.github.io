@@ -37,15 +37,15 @@ where
 
 The first left and right singular vectors (i.e. $u_1, u_2, ...$ and $v_1, v_2, ...$) are weighted more than last because they will be the ones multiplied by the largest values in $S$. Of course there is more nuance to this idea, but the upshot is that the SVD of $A$ provides a list of ingredients for matrix $A$ that is ordered by importance (as my professor puts it). Feel free to read more about SVD <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">here</a>.
 
-It seems reasonable that our method for assigning vectors to words picked up a lot of noise. To try to dampen this noise, we are going to use the SVD of $\widehat{M} = USV^\top$ to find a low dimensional word embedding by using the first 99 columns and rows of $U$ and $S$, respectively. This only makes sense if those singular values are signifigantly larger than the rest. To confirm this, we can plot the first 99 singular values.
+It seems reasonable that our method for assigning vectors to words picked up a lot of noise. To try to dampen this noise, we are going to use the SVD of $\widehat{M} = USV^\top$ to find a low dimensional word embedding by using the first 99 columns and rows of $U$ and $S$, respectively. However, this only makes sense if those singular values are signifigantly larger than the rest. To confirm this, we can plot the first 99 singular values.
 
 <div style="text-align:center;">
    <img style="width:450px;" src="/assets/images/p2_part_a.png" />
 </div>
 
-As suspected, the early singular values of $\widehat{M}$ are quite large relative to the rest. This ensures that $\widehat{M}$ is close to being low-rank, and using the first 99 singular vectors and values will provide a good approximation to $\widehat{M}$ while eliminating noise that might have been picked up in the other 9901 dimensions. The last step in creating our word embedding is to normalize the rows of $U$.
+As suspected, the early singular values of $\widehat{M}$ are quite large relative to the rest. This ensures that $\widehat{M}$ is close to being low-rank, and using the first 99 singular vectors and values will provide a good approximation to $\widehat{M}$ while eliminating noise that might have been introduced in the other 9901 dimensions. The last step in creating our word embedding is to normalize the rows of $U$.
 
-Here is the algorithm for our word embedding:
+Here is the algorithm creating our word embedding:
 <ol>
   <li>Compute SVD of $\widehat{M} = USV^\top$.</li>
   <li>Let $U_{99}$ be the first 99 singular vectors of $U = [u_1 \; u_2 \; ... \; u_{99}]$.</li>
@@ -55,9 +55,11 @@ Here is the algorithm for our word embedding:
 Let $w_i \in \mathbb{R}^{10000}$ be a word represented by the $i$th column of $\widehat{M}$. Then, the embedding of that word is the $i$th column of $\widehat{U}_{99}$, which is in $\mathbb{R}^{99}$.
 
 
-# Performance on the Analogy Task:
+# Performance:
 
-Ok, so we've created a word embedding, but how good is it. This is not an easy question to answer, but let's return to our original task of completing analogies. ...
+Ok, so we've created a word embedding, but how well does it preserve the semantic and syntatic relationships between words. This is not an easy question to answer, but let's examine some interesting properties of this embedding. 
+
+
 
 TODO
 * Provide diagrams of performance on gendered anologies
