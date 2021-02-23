@@ -57,7 +57,18 @@ Let $w_i \in \mathbb{R}^{10000}$ be a word represented by the $i$th column of $\
 
 # Performance:
 
-Ok, so we've created a word embedding, but how well does it preserve the semantic and syntatic relationships between words. This is not an easy question to answer, but let's examine some interesting properties of this embedding. 
+Ok, so we've created a word embedding, but how well does it preserve the semantic and syntatic relationships between words. This is not an easy question to answer, but let's examine some interesting properties of this embedding. Let $u_1$ be the embedding of the word man, $u_2$ be the embedding of the word "woman", and $u = u_1 - u_2$. When we project the embeddings of the words <code class="highlighter-rouge">boy, girl, brother, sister, king, queen, he, she, john, mary, all, tree</code> onto this vector we see some interesting results.
+
+<div style="text-align:center;">
+   <img style="width:450px;" src="/assets/images/2c_projs.png" />
+</div>
+
+The general trend is immediately obvious: words associated with "woman" have a higher projection value, while words associated more with "man" have a lower projection value. The word "Mary", a traditionally female name, has the highest projection value out of all words. On the other end of the spectrum is the word, "brother", which, semantically, is much closer to "man" than "woman". Note that the word "tree" has a projection value close to zero, or neutral, as we would expect. While the values of some words didn't exactly match our expectation, the general trend was clear. This shows that certain directions in the embedded space do indeed correspond to specific semantic concepts.
+
+
+<div style="text-align:center;">
+   <img style="width:450px;" src="/assets/images/2d_projs.png" />
+</div>
 
 
 
