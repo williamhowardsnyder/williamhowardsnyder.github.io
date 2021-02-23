@@ -55,34 +55,32 @@ Here is the algorithm creating our word embedding:
 Let $w_i \in \mathbb{R}^{10000}$ be a word represented by the $i$th column of $\widehat{M}$. Then, the embedding of that word is the $i$th column of $\widehat{U}_{99}$, which is in $\mathbb{R}^{99}$.
 
 
-# Performance:
+# Interesting Properties:
 
-Ok, so we've created a word embedding, but how well does it preserve the semantic and syntatic relationships between words. This is not an easy question to answer, but let's examine some interesting properties of this embedding. Let $u_1$ be the embedding of the word man, $u_2$ be the embedding of the word "woman", and $u = u_1 - u_2$. When we project the embeddings of the words <code class="highlighter-rouge">boy, girl, brother, sister, king, queen, he, she, john, mary, all, tree</code> onto this vector we see some interesting results.
+Before using the embedding to solve the analogy task, let's examine some interesting properties of this embedding. Let $u_1$ be the embedding of the word man, $u_2$ be the embedding of the word "woman", and $u = u_1 - u_2$. When we project (i.e. take the dot product of) the embeddings of the words <code class="highlighter-rouge">boy, girl, brother, sister, king, queen, he, she, john, mary, all, tree</code> onto this vector we can see some interesting results.
 
 <div style="text-align:center;">
    <img style="width:450px;" src="/assets/images/2c_projs.png" />
 </div>
 
-The general trend is immediately obvious: words associated with "woman" have a higher projection value, while words associated more with "man" have a lower projection value. The word "Mary", a traditionally female name, has the highest projection value out of all words. On the other end of the spectrum is the word, "brother", which, semantically, is much closer to "man" than "woman". Note that the word "tree" has a projection value close to zero, or neutral, as we would expect. While the values of some words didn't exactly match our expectation, the general trend was clear. This shows that certain directions in the embedded space do indeed correspond to specific semantic concepts.
+The general trend is immediately obvious: words associated with "woman" have a higher projection value, while words associated more with "man" have a lower projection value. The word "Mary", a traditionally female name, has the highest projection value out of all words. On the other end of the spectrum is the word, "brother", which, semantically, is much closer to "man" than "woman". Note that the word "tree" has a projection value close to zero, or neutral, as we would expect. While the values of some words didn't exactly what we might expect, the general trend was clear. This shows that certain directions in the embedded space do indeed correspond to specific semantic concepts. This is incredible! With a relatively simple technique, we were able to extract a vector that measures the gender of our words.
 
+Of course, you might already be suspecting the troubling consequences of this embedding. Projecting the words <code class="highlighter-rouge">math, matrix, history, nurse, doctor, pilot, teacher, engineer, science, arts, literature, bob, alice</code> onto $u$ gives us the following:
 
 <div style="text-align:center;">
    <img style="width:450px;" src="/assets/images/2d_projs.png" />
 </div>
 
+In this plot, words like "engineer", "history", and "math" have negative projection values, which means the embedding associates them more with "man", whereas words like "nurse", "arts", and "literature" have positive projection values, which means they are associated more with "woman". The word "engineer" has the most negative value. This is probably because engineering is a male dominated field, so the words "engineer" and "man" are more likely to appear near each other in the Wiki corpus. On the other hand, "nurse" is the most positive value for a similar reason. These results reflect human biases about gender roles and could could be problematic if used in practice. For example, suppose some company used such word embeddings to extract information from candidates' resumes to improve their "search for qualified job candidates" option. An individual could be deemed more (or less) qualified for a particular position (e.g. an engineering job) on the basis of gender. So, it is always important to consider the biases that can arise from any type of algorithm before implementing it in a context with societal implications.
 
+# Performance on the Analogy Task:
 
-TODO
-* Provide diagrams of performance on gendered anologies
-* Explain why this is the case
-* Potential downsides
+Ok, so we've created a word embedding that has some interesting properties, but how well does it preserve the semantic and syntatic relationships between words. This is not an easy question to answer, but one test we can employ is seeing how well it completes analogies.
 
-
-
-# Other Interesting Properties:
-
-Put something here too
-
+TODO:
+* Motivate analogy task a little more (how we approximate it) and provide data set
+* Describe similarity metric
+* Provide analysis on the different types of analogies that it does well on
 
 
 # Notes and other stuff
