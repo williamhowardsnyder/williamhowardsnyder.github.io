@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Word Embeddings"
-date: 2021-02-02 00:00:00 -0000
+date: 2021-03-30 00:00:00 -0000
 categories: Word Embedding
 ---
 # Introduction:
-In natural language processing and other related disciplines, it is often useful to treat words as vectors of real numbers in some high dimensional space. One intuitive way to do this is by one hot encoding, where all words are numbered off and assiged a vector $v_i$ such that the $i$th word is all zeros except for a 1 in the $i$th coordinate. For example, if "dog" was your 3rd word it would be assigned the vector $[0 \; 0 \; 1 \; 0 \; 0\; ... \; 0]$. This is a relatively simple scheme, but as you might imagine, the number of dimensions explodes with the number of words that you're considering. This means that algorithms will run slower on this data. Moreover, it doesn't take into account the context in which words are used. Over the course of this blog post we will explore a technique called <a href="https://en.wikipedia.org/wiki/Word_embedding">word embedding</a>, that will involve representing words as vectors in a much lower dimensional space, and in a way that preserves their semantic and syntactic relationships. What this means is that similar words will be close together.
+In natural language processing and other related disciplines, it is often useful to treat words as vectors of real numbers in some high dimensional space. One intuitive way to do this is by one hot encoding, where all words are numbered off and assiged a vector $v_i$ such that the $i$th word is all zeros except for a 1 in the $i$th coordinate. For example, if "dog" was the 3rd word in your vocabulary it would be assigned the vector $[0 \; 0 \; 1 \; 0 \; 0\; ... \; 0]$. This is a relatively simple scheme, but as you might imagine, the number of dimensions explodes with the number of words that you're considering. This means that algorithms will run slower when processing this data. Moreover, it doesn't take into account the context in which words are used. Over the course of this blog post we will explore a technique called <a href="https://en.wikipedia.org/wiki/Word_embedding">word embedding</a>, that involves representing words as vectors in a much lower dimensional space, and in a way that preserves their semantic and syntactic relationships.
 
 Today, we are going to look at a word embedding that uses singular value decomposition and see how it performs on the task of completing analogies. Consider the following analogy:
 {:refdef: style="text-align: center;"}
@@ -13,13 +13,13 @@ Today, we are going to look at a word embedding that uses singular value decompo
 {: refdef}
 Let $w_{boy}$, $w_{girl}$, $w_{grandfather}$, $w_{grandmother}$ represent the vectors that correspond to the words boy, girl, grandfather, and grandmother in the embedding. We will find that in our word embedding,
 <script type="math/tex; mode=display">w_{girl} - w_{boy} + w_{grandfather} \approx w_{grandmother}</script>
-Over the course of this blog post, I will explain how this can be achieved.
+Below, I will explain how this can be achieved.
 
 # The Embedding:
 
-First, we need a way to represent words as vectors. Initially, it is not important that this representation is low dimensional or captures the meaning of words. One way to do this that seems reasonable is to take a huge corpus of text, and represent each word as the number of times every other word appears near it. This vector will capture the co-occurence relationship between words. For our purposes, we will use a Wikipedia corpus with 1.5 billion words, and store all this information in a matrix $M$. Since some words only appear once, we will store the 10,000 most common words. Now, we have a matrix $M$ such that $M_{ij}$ is the number of times the $i$th word appeared near (within 5 words of) the $j$th word.
+First, we need a way to represent words as vectors. Initially, it is not important that this representation is low dimensional, but it should provide some sembelance of the meaning of these words. One way to do this is to take a huge sample of text, and represent each word as the number of times every other word appears near it. This seems like a reasonable representation because words that appear in similar contexts will tend to have similar meanings. If interested you can learn more about this theory of semantics <a href="https://en.wikipedia.org/wiki/Distributional_semantics">here</a>. This vector will capture the co-occurence relationship between words. For our purposes, we will use a Wikipedia corpus with 1.5 billion words, and store all this information in a matrix $M$. Since some words are relatively unimportant and appear only once, we will store the 10,000 most common words. Now, we have a matrix $M$ such that $M_{ij}$ is the number of times the $i$th word appeared near (within 5 words of) the $j$th word.
 
-For example, the index 12 corresponds to the word "with", and the index 3 correponds to the word "in", so $M_{12, 3}$ will store the number of times the word "with" shows up within 5 words of the word "in" in our text corpus. As you might expect, the most common words will be articles and other farily non-interesting types of words. To make these words less influential we'll define a new matrix $\widehat{M} \in \mathbb{R}^{10000 \times 10000}$ such that $\widehat{M} = \ln(1 + M_{ij})$. The idea behind this operation is to smooth out the counts, and hopefully get a better embedding as a result. Now that we have a matrix $\widehat{M}$ that represents each word as a vector of real numbers we begin embedding these vectors into lower dimensions in a way that captures their meaning.
+For example, the index 12 corresponds to the word "with", and the index 3 correponds to the word "in", so $M_{12, 3}$ will store the number of times the word "with" shows up within 5 words of the word "in" in our text corpus. As you might expect, the most common words will be articles and other non-interesting types of words. To make these words less influential we'll define a new matrix $\widehat{M} \in \mathbb{R}^{10000 \times 10000}$ such that $\widehat{M} = \ln(1 + M_{ij})$. The idea behind this operation is to smooth out the counts, and hopefully get a better embedding as a result. Now that we have a matrix $\widehat{M}$ that represents each word as a vector of real numbers we can begin embedding these vectors into lower dimensions in a way that captures their meaning.
 
 As alluded to above, the way that we are going to do this is by using singular value decomposition (SVD). The SVD of a matrix $A \in \mathbb{R}^{m \times n}$ expresses $A$ as the product of three "simple" matrices:
 
@@ -57,7 +57,7 @@ Let $w_i \in \mathbb{R}^{10000}$ be a word represented by the $i$th column of $\
 
 # Interesting Properties:
 
-Before using the embedding to solve the analogy task, let's examine some interesting properties of this embedding. Let $u_1$ be the embedding of the word man, $u_2$ be the embedding of the word "woman", and $u = u_1 - u_2$. When we project (i.e. take the dot product of) the embeddings of the words <code class="highlighter-rouge">boy, girl, brother, sister, king, queen, he, she, john, mary, all, tree</code> onto this vector we can see some interesting results.
+Before using the embedding to solve the analogy task, let's examine some interesting properties of this embedding. Let $u_1$ be the embedding of the word man, $u_2$ be the embedding of the word "woman", and $u = u_1 - u_2$. When we project (i.e. take the dot product of) the embeddings of the words <code class="highlighter-rouge">boy, girl, brother, sister, king, queen, he, she, john, mary, all, tree</code> onto this vector $u$ we can see some interesting results.
 
 <div style="text-align:center;">
    <img style="width:450px;" src="/assets/images/2c_projs.png" />
@@ -75,17 +75,20 @@ In this plot, words like "engineer", "history", and "math" have negative project
 
 # Performance on the Analogy Task:
 
-Ok, so we've created a word embedding that has some interesting properties, but how well does it preserve the semantic and syntatic relationships between words. This is not an easy question to answer, but one test we can employ is seeing how well it completes analogies.
+Ok, so we've created a word embedding that has some interesting properties, but how well does it preserve the semantic and syntatic relationships between words. This is not an easy question to answer, but one test we can employ is seeing how well it completes analogies. As mentioned in the introduction, the analogy task involves filling in the blank "*A is to B as X is to \_\_\_\_*", where the relationship between A and B is similar to that of X and "\_\_\_\_". A couple examples from the data set include
+<ul>
+  <li>*Boy is to girl as grandfather is to \_\_\_\_\_\_* where the relationship is term of the opposite gender</li>
+  <li>*Phoenix is to Arizona as Miami is to \_\_\_\_\_\_* where the relationship is captial-to-state</li>
+  <li>*Running is to ran as knowing is to \_\_\_\_\_\_* where the relationship is present-to-past tense</li>
+</ul>
+Let $w_{1}$, $w_{2}$, $w_{3}$ represent the vectors that correspond to the first, second, and third words in the analogy. We fill in the blank of these analogies by finding the word that corresponds to the nearest vector in our word embedding to the following vector:
+<script type="math/tex; mode=display"> w_{2} - w_{1} + w_{3} </script>
+It may seem kind of arbitrary at first to subtract off some vectors and add others, but the idea is that subtracting $w_1$ from $w_2$ will represent the difference between these two concepts. A similar difference should be seen between $w_3$ and $w_4$. So, adding $w_3$ to this quantity will put the result in the ballpark of $w_4$.
 
-TODO:
-* Motivate analogy task a little more (how we approximate it) and provide data set
-* Describe similarity metric
-* Provide analysis on the different types of analogies that it does well on
+I used nearest neighbor search with cosine similarity to find the nearest neighbor. The final equation for completing the analogies was
+<script type="math/tex; mode=display">\underset{i}{\text{arg min}} \frac{\widehat{M}[i] \cdot (w_{2} - w_{1} + w_{3})}{||\widehat{M}[i]||_2 \times ||w_{2} - w_{1} + w_{3}||_2} </script>
 
-
-# Notes and other stuff
-
-Annother thing here maybe
+With this simple algorithm I was able to achieve an accuracy of 52%, which is surprisingly good considering how many possible words could fill in that blank.
 
 
 *This blog post was inspired by a project I completed for CSE 422: Modern Algorithms, which is a course I took at the University of Washington.*
