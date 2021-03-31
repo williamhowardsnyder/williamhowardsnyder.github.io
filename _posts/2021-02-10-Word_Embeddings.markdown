@@ -77,18 +77,18 @@ In this plot, words like "engineer", "history", and "math" have negative project
 
 Ok, so we've created a word embedding that has some interesting properties, but how well does it preserve the semantic and syntatic relationships between words. This is not an easy question to answer, but one test we can employ is seeing how well it completes analogies. As mentioned in the introduction, the analogy task involves filling in the blank "*A is to B as X is to \_\_\_\_*", where the relationship between A and B is similar to that of X and "\_\_\_\_". A couple examples from the data set include
 <ul>
-  <li>*Boy is to girl as grandfather is to \_\_\_\_\_\_* where the relationship is term of the opposite gender</li>
+  <li><it>Boy is to girl as grandfather is to \_\_\_\_\_\_</i> where the relationship is term of the opposite gender</li>
   <li>*Phoenix is to Arizona as Miami is to \_\_\_\_\_\_* where the relationship is captial-to-state</li>
   <li>*Running is to ran as knowing is to \_\_\_\_\_\_* where the relationship is present-to-past tense</li>
 </ul>
-Let $w_{1}$, $w_{2}$, $w_{3}$ represent the vectors that correspond to the first, second, and third words in the analogy. We fill in the blank of these analogies by finding the word that corresponds to the nearest vector in our word embedding to the following vector:
+Let $w_{1}$, $w_{2}$, $w_{3}$ represent the vectors that correspond to the first, second, and third words in the analogy and $w_4$ represnt the word to be filled in. We fill in the blank of these analogies by finding the word that corresponds to the nearest vector in our word embedding to the following vector:
 <script type="math/tex; mode=display"> w_{2} - w_{1} + w_{3} </script>
-It may seem kind of arbitrary at first to subtract off some vectors and add others, but the idea is that subtracting $w_1$ from $w_2$ will represent the difference between these two concepts. A similar difference should be seen between $w_3$ and $w_4$. So, adding $w_3$ to this quantity will put the result in the ballpark of $w_4$.
+It may seem kind of arbitrary at first to subtract off some vectors and add others, but the idea is that subtracting $w_1$ from $w_2$ in the embedding will give us the difference between these two **concepts**. A similar relationship should be seen between $w_3$ and $w_4$. So, adding $w_3$ to this quantity will put the result in the ballpark of $w_4$.
 
-I used nearest neighbor search with cosine similarity to find the nearest neighbor. The final equation for completing the analogies was
+I used nearest neighbor search with cosine similarity to find $w_4$. The final equation for completing the analogies was $w_4 = M[i]$ where
 <script type="math/tex; mode=display">\underset{i}{\text{arg min}} \frac{\widehat{M}[i] \cdot (w_{2} - w_{1} + w_{3})}{||\widehat{M}[i]||_2 \times ||w_{2} - w_{1} + w_{3}||_2} </script>
 
-With this simple algorithm I was able to achieve an accuracy of 52%, which is surprisingly good considering how many possible words could fill in that blank.
+With this simple algorithm I was able to achieve an accuracy of 52%, which is surprisingly good considering there were 10000 options how the analogy could be completed.
 
 
 *This blog post was inspired by a project I completed for CSE 422: Modern Algorithms, which is a course I took at the University of Washington.*
