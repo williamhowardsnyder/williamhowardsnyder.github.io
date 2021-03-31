@@ -87,7 +87,7 @@ It may seem kind of arbitrary at first to subtract off some vectors and add othe
 I used nearest neighbor search with cosine similarity to find $w_4$. The final equation for completing the analogies was $w_4 = M[i]$ where
 <script type="math/tex; mode=display">\underset{i}{\text{arg min}} \frac{\widehat{M}[i] \cdot (w_{2} - w_{1} + w_{3})}{||\widehat{M}[i]||_2 \times ||w_{2} - w_{1} + w_{3}||_2} </script>
 
-With this simple algorithm I was able to achieve an accuracy of 52%, which is surprisingly good considering there were 10,000 options how the analogy could be completed.
+With this simple algorithm I was able to achieve an accuracy of 52% on the analogy task, which is surprisingly good considering there were 10,000 options how the analogy could be completed.
 
 
 
