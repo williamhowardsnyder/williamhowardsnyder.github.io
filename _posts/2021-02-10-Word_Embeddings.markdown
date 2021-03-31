@@ -76,9 +76,9 @@ In this plot, words like "engineer", "history", and "math" have negative project
 # Performance on the Analogy Task:
 
 Ok, so we've created a word embedding that has some interesting properties, but how well does it preserve the semantic and syntatic relationships between words. This is not an easy question to answer, but one test we can employ is seeing how well it completes analogies. As mentioned in the introduction, the analogy task involves filling in the blank "*A is to B as X is to \_\_\_\_*", where the relationship between A and B is similar to that of X and "\_\_\_\_". A couple examples from the data set include
-- "*Boy is to girl as grandfather is to \_\_\_\_\_\_*" where the relationship is term of the opposite gender</li>
-- "*Phoenix is to Arizona as Miami is to \_\_\_\_\_\_*" where the relationship is captial-to-state</li>
-- "*Running is to ran as knowing is to \_\_\_\_\_\_*" where the relationship is present-to-past tense</li>
+- "*Boy is to girl as grandfather is to \_\_\_\_\_\_*" where the relationship is term of the opposite gender
+- "*Phoenix is to Arizona as Miami is to \_\_\_\_\_\_*" where the relationship is captial-to-state
+- "*Running is to ran as knowing is to \_\_\_\_\_\_*" where the relationship is present-to-past tense
 
 Let $w_{1}$, $w_{2}$, $w_{3}$ represent the vectors that correspond to the first, second, and third words in the analogy and $w_4$ represnt the word to be filled in. We fill in the blank of these analogies by finding the word that corresponds to the nearest vector in our word embedding to the following vector:
 <script type="math/tex; mode=display"> w_{2} - w_{1} + w_{3} </script>
