@@ -17,6 +17,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
+Hello!
+
 I'm William, a first years MS student at the University of Washington studying computer science.
 My research interests include machine learning and scalable algorithms with an eye towards applying these tools to solve problems in biology and medicine.
 I spend most of my time as a graduate researcher in the [Matsen Group](https://matsen.fredhutch.org/) at Fred Hutchinson Cancer Research Center working towards designing scalable methods for inferrence of viral evolution.
