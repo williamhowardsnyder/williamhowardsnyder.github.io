@@ -6,7 +6,7 @@ subtitle:
 
 profile:
   align: right
-  image: profile_pic.JPG
+  image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   address: >
     <p>University of Washington</p>
@@ -17,9 +17,14 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am currently an MS CS student at the University of Washington. We have made another change.
+I'm William, a first years MS student at the University of Washington studying computer science.
+My research interests include machine learning and scalable algorithms with an eye towards applying these tools to solve problems in biology and medicine.
+I spend most of my time as a graduate researcher in the [Matsen Group](https://matsen.fredhutch.org/) at Fred Hutchinson Cancer Research Center working towards designing scalable methods for inferrence of viral evolution.
 
- a recent graduate of the University of Washington (woohoo!) and double majored in Computer Science and Philosophy. I am continuing my education as a Master's student studying computer science. My academic interests include machine learning and scalable algorithms with an eye towards applying these tools to solve problems in biology and medicine.
+I attained a BS (2022) at the University of Washington in Computer Science, where I was fortunate to be advised by [Sheng Wang](https://homes.cs.washington.edu/~swang/) for my undergraduate thesis, as well as [Erick Matsen](https://matsen.fredhutch.org/) for a research internship at FHCRC.
+I also attained a BA (2022) in Philosophy, where I focused on normative subjects like Ethics and Epistemology.
+
+You can reach me at howarwil[at]cs[dot]washington[dot]edu
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
