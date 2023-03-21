@@ -2,10 +2,8 @@ github_users:
   - williamhowardsnyder
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - williamhowardsnyder/dl_img_rep
+  - matsengrp/historydag
+  - hanseaston/LinkPredictionOGB
+  - williamhowardsnyder/Hashtag_Preferences_Replication
+  - williamhowardsnyder/OnClass
