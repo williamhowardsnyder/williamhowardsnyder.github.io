@@ -2,11 +2,20 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+description: I've had the pleasure of TAing for a variety of courses in the Paul G. Allen School of Computer Science. I'm fascinated by applications of probability in computer science and enjoy passing this enthusiasm on to eager students!
 nav: true
 nav_order: 5
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+## [CSE 312: Introduction to Probability and Statistics](https://courses.cs.washington.edu/courses/cse312/)
+- Summer 2019
+- Fall 2019
+- Winter 2020
 
-Organize your courses by years, topics, or universities, however you like!
+## [CSE 473: Introduction to Artificial Intelligence](https://courses.cs.washington.edu/courses/cse473/)
+- Fall 2022
+- Winter 2023
+
+## [CSE 422: Advanced Toolkit for Modern Algorithms](https://courses.cs.washington.edu/courses/cse422/)
+- Spring 2023
+
