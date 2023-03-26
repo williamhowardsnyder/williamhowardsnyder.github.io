@@ -17,7 +17,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-I'm William, a first years MS student at the University of Washington studying computer science.
+I'm William, a first year MS student at the University of Washington studying computer science.
 My research interests include machine learning and scalable algorithms with the goal of applying these tools to problems in biology and medicine.
 I spend most of my time as a graduate researcher in the [Matsen Group](https://matsen.fredhutch.org/) at Fred Hutchinson Cancer Research Center working towards designing scalable methods for better understanding viral evolution.
 
