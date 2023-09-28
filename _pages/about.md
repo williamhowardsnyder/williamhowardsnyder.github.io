@@ -18,12 +18,13 @@ social: false  # includes social icons at the bottom of the page
 ---
 
 I'm William, a second year MS student at the University of Washington studying computer science.
-My research interests include machine learning and scalable algorithms with the goal of applying these tools to problems in biology and medicine.
-I spend most of my time as a graduate researcher in the [Matsen Group](https://matsen.fredhutch.org/) at Fred Hutchinson Cancer Research Center working towards designing scalable methods for better understanding viral evolution.
+I am broadly interested in machine learning, algorithm design, and reasoning under uncertainty, with applications in biology and medicine.
+Recently, I have been particularly excited about applying tools from these areas to understand the optimization landscape in phylogenetic inference, with the goal of better understanding large-scale viral evolution.
+I'm currently exploreing these questions and more as a graduate researcher in the [Matsen Group](https://matsen.fredhutch.org/) at Fred Hutchinson Cancer Research Center.
 
 I attained a BS (2022) at the University of Washington in Computer Science, where I was fortunate to be advised by Prof. [Sheng Wang](https://homes.cs.washington.edu/~swang/) for my undergraduate thesis, as well as [Erick Matsen](https://matsen.fredhutch.org/) for a research internship at FHCRC.
 I also attained a BA (2022) in Philosophy, where I focused on normative subjects like Ethics and Epistemology.
 
-Outside of school, I enjoy playing board games, doing BJJ, and traveling.
+Outside of school, I enjoy playing board games with friends, going on walks with my wife, and I recently started doing Brazilian jiu-jitsu.
 
 You can reach me at howarwil[at]cs[dot]washington[dot]edu
