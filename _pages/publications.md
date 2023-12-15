@@ -16,12 +16,3 @@ nav_order: 1
 {% endfor %}
 
 </div>
-
-<div class="preprints">
-
-{%- for y in page.years %}
-  <h2 class="year">{{y}}</h2>
-  {% bibliography -f preprints -q @*[year={{y}}]* %}
-{% endfor %}
-
-</div>
