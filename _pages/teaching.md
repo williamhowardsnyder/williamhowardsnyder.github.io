@@ -19,4 +19,5 @@ nav_order: 5
 
 ## [CSE 422: Advanced Toolkit for Modern Algorithms](https://courses.cs.washington.edu/courses/cse422/)
 - Spring 2023
+- Winter 2024
 
