@@ -2,7 +2,7 @@
 layout: page
 title: Data Science Capstone
 description: Presentation and Success in Computer Science Research
-img: assets/img/Data-Driven-Writing-Tips.jpg
+img: assets/img/Data-Driven-Writing-Tips.jpeg
 importance: 2
 category: work
 ---

@@ -2,8 +2,8 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Here are a couple of projects that I 
-nav: False
+description: Here are a couple of projects that I'm proud of :)
+nav: True
 nav_order: 2
 display_categories: 
 horizontal: false
