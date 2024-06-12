@@ -21,3 +21,6 @@ nav_order: 5
 - Spring 2023
 - Winter 2024
 
+## [CSE 547: Machine Learning for Big Data](https://courses.cs.washington.edu/courses/cse547/)
+- Spring 2024
+
