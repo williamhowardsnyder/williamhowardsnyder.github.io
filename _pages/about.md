@@ -18,7 +18,7 @@ social: false  # includes social icons at the bottom of the page
 ---
 
 I'm William, a first-year PhD student in Computer Science at Princeton University.
-My academic interests include machine learning, algorithm design, and probabilistic modeling, and how to apply tools from these areas to gain a better understanding of biologicial processes.
+My academic interests include machine learning, algorithm design, probabilistic modeling, and how to apply tools from these areas to gain a better understanding of biologicial processes.
 
 In 2024, I completed my Master's at the University of Washington, where I worked in the [Matsen Lab](https://matsen.fredhutch.org/) on improving uncertainty estimation for phylogenetic inference in large viral datasets. During my undergraduate years, I earned a BS in Computer Science and a BA in Philosophy (both in 2022), where I explored topics ranging from algorithms to normative ethics. My undergraduate thesis was supervised by Prof. [Sheng Wang](https://homes.cs.washington.edu/~swang/), and I also worked with [Erick Matsen](https://matsen.fredhutch.org/) for two wonderful research internships at Fred Hutchinson Cancer Research Center.
 
