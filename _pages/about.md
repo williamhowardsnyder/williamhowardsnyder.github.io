@@ -8,18 +8,17 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  # address: >
-  #   <p>University of Washington</p>
-  #   <p>Seattle, WA</p>
 
 news: true  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-I'm William, a first-year PhD student in Computer Science at Princeton University.
-My academic interests include machine learning, algorithm design, probabilistic modeling, and how to apply tools from these areas to gain a better understanding of biologicial processes.
+I'm William Howard‑Snyder, a second-year PhD student in Computer Science at Princeton University, where I'm fortunate to be advised by [Ben Raphael](https://www.cs.princeton.edu/people/profile/braphael).
+My research lies at the intersection of computational biology, probabilistic modeling, and algorithm design---with a particular focus on developing methods to better understand stochastic processes in biology, such as viral evolution and mammalian embryogenesis.
+I’m broadly interested in probabilistic modeling, inference algorithms, and theory that connects to real data.
 
-In 2024, I completed my Master's at the University of Washington, where I worked in the [Matsen Lab](https://matsen.fredhutch.org/) on improving uncertainty estimation for phylogenetic inference in large viral datasets. During my undergraduate years, I earned a BS in Computer Science and a BA in Philosophy (both in 2022), where I explored topics ranging from algorithms to normative ethics. My undergraduate thesis was supervised by Prof. [Sheng Wang](https://homes.cs.washington.edu/~swang/), and I also worked with [Erick Matsen](https://matsen.fredhutch.org/) for two wonderful research internships at Fred Hutchinson Cancer Research Center.
+Before Princeton, I completed an MS in Computer Science at the University of Washington, where I worked in the [Matsen Lab](https://matsen.fredhutch.org/) on statistical approaches to phylogenetic inference---particularly improving uncertainty quantification for large, densely sampled viral datasets.
+I earned my BS in Computer Science and BA in Philosophy (both in 2022) at the University of Washington.
 
-Outside of research, I enjoy playing board games with friends, spending time with my wife, and practicing Brazilian Jiu-Jitsu.
+Outside of research, I enjoy training in Brazilian Jiu-Jitsu, playing board games with friends, and spending time with my wife.
